@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorMVVM.Android", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorMVVM", "CalculatorMVVM\CalculatorMVVM\CalculatorMVVM.csproj", "{B2AE83F7-03B3-4DFB-9DDE-7D5885F8AF62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorMVVM.Tests", "CalculatorMVVM.Tests\CalculatorMVVM.Tests.csproj", "{C3C8BD7A-80BA-495B-90FC-5CF1D1944B68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{B2AE83F7-03B3-4DFB-9DDE-7D5885F8AF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2AE83F7-03B3-4DFB-9DDE-7D5885F8AF62}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2AE83F7-03B3-4DFB-9DDE-7D5885F8AF62}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C3C8BD7A-80BA-495B-90FC-5CF1D1944B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3C8BD7A-80BA-495B-90FC-5CF1D1944B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3C8BD7A-80BA-495B-90FC-5CF1D1944B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3C8BD7A-80BA-495B-90FC-5CF1D1944B68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

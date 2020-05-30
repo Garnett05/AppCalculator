@@ -6,6 +6,19 @@
              mc:Ignorable="d"
              x:Class="CalculatorMVVM.App">
     <Application.Resources>
-
+        <Style TargetType="Frame" >
+            <Setter Property="BorderColor" Value="#00BFFF" />
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="BackgroundColor" Value="#00BFFF" />
+            <Setter Property="CornerRadius" Value="14" />
+        </Style>
+        <Style TargetType="Label" >
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            <Setter Property="TextColor" Value="#363636" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextColor" Value="WhiteSmoke" />
+        </Style>
     </Application.Resources>
 </Application>

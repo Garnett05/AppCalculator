@@ -16,6 +16,7 @@ namespace CalculatorMVVM
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainViewModel();
         }
     }
 }

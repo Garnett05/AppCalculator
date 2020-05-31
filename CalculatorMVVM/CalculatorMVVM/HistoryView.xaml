@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="HistoryPage"
+             x:Class="CalculatorMVVM.View.HistoryView">
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Items}" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                                       BackgroundColor="Red"
+                                       Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference HistoryPage}}"
+                                       CommandParameter="{Binding}"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Label Text="{Binding .}" Padding="20, 10, 10, 10" TextColor="Black" />
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <StackLayout HorizontalOptions="Center">
+                    <Image Source="https://www.agenciamestre.com/wp-content/uploads/2009/05/erro-404-1280x720.jpg"
+                           WidthRequest="200"
+                           HeightRequest="200"/>
+                    <Label HorizontalTextAlignment="Center"
+                           Padding="20, 10, 10, 10"
+                           Text="404 - No History Found!"
+                           FontSize="24"
+                           TextColor="Gray"
+                           VerticalOptions="Start"/>
+                </StackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

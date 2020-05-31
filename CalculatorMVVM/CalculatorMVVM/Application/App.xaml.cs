@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using CalculatorMVVM.Navigation;
+using CalculatorMVVM.Services;
 using CalculatorMVVM.View;
 using System;
 using System.Reflection;
@@ -17,8 +19,19 @@ namespace CalculatorMVVM
             builder.RegisterAssemblyTypes(dataAccess)
                 .AsImplementedInterfaces()
                 .AsSelf();
+
+            NavigationPage navigationPage = null;
+            Func<INavigation> navigationFunc = () =>
+            {
+                return navigationPage.Navigation;
+            };
+
+            builder.RegisterType<NavigationService>().As<INavigationService>()
+                .WithParameter("navigation", navigationFunc);
+
             var container = builder.Build();
-            MainPage = container.Resolve<HistoryView>();
+            navigationPage = new NavigationPage(container.Resolve<CalculatorView>());
+            MainPage = navigationPage;
         }
 
         protected override void OnStart()

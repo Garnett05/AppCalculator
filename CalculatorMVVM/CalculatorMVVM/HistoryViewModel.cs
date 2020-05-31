@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalculatorMVVM.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -7,7 +8,7 @@ using Xamarin.Forms;
 
 namespace CalculatorMVVM.ViewModels
 {
-    public class HistoryViewModel
+    public class HistoryViewModel : BaseViewModel
     {
         public HistoryViewModel()
         {

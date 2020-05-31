@@ -6,6 +6,12 @@
              xmlns:local="clr-namespace:CalculatorMVVM"
              mc:Ignorable="d"
              x:Class="CalculatorMVVM.CalculatorView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Info"
+                     Order="Primary"
+                     Priority="0"
+                     Command="{Binding ShowHistoryCommand}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid ColumnSpacing="6" RowSpacing="6" Margin="5" >
             <Grid.RowDefinitions>

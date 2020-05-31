@@ -12,10 +12,10 @@ namespace CalculatorMVVM
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CalculatorView : ContentPage
     {
-        public CalculatorView()
+        public CalculatorView(CalculatorViewModel viewModel)
         {
             InitializeComponent();
-            BindingContext = new CalculatorViewModel();
+            BindingContext = viewModel;
         }
     }
 }

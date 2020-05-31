@@ -1,7 +1,10 @@
-﻿using System;
+﻿using CalculatorMVVM.Services;
+using CalculatorMVVM.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -28,20 +31,28 @@ namespace CalculatorMVVM
         private string _secondNumber = string.Empty;
         private CalculatorState _state;
         private Operation _currentOperation;
+        private INavigationService _navigation;
 
-        public CalculatorViewModel()
+        public CalculatorViewModel(INavigationService navigation)
         {
             _state = CalculatorState.PopulatingFirstNumber;
             _currentOperation = Operation.None;
+            _navigation = navigation;
         }
         public string DisplayText { 
             get { return _displayText; }
             set { _displayText = value;
                 OnPropertyChanged();
             } }
+        public ICommand ShowHistoryCommand => new Command(async () => { await GoToHistory(); });
         public ICommand ClearCommand => new Command(ClearText);
         public ICommand AddCharCommand => new Command<string>(AddChar);
         public ICommand OperationCommand => new Command<Operation>(PerformOperation);
+        
+        private async Task GoToHistory()
+        {
+            await _navigation.PushAsync<HistoryViewModel>();
+        }
         private void AddChar (string character)
         {
             if (_state == CalculatorState.PopulatingFirstNumber)

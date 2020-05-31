@@ -17,8 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="CalculatorView.xaml">
+    <EmbeddedResource Update="Modules\Calculator\CalculatorView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:CalculatorMVVM"
+             mc:Ignorable="d"
+             x:Class="CalculatorMVVM.CalculatorView">
+    <ContentPage.Content>
+        <Grid ColumnSpacing="6" RowSpacing="6" Margin="5" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="85" />
+                <RowDefinition Height="85" />
+                <RowDefinition Height="85" />
+                <RowDefinition Height="85" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="0" Grid.ColumnSpan="4" >
+                <Editor Text="{Binding DisplayText, Mode=TwoWay}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <Frame Grid.Row="1" Grid.ColumnSpan="4" >
+                <Label Text="Clear" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ClearCommand}" CommandParameter="clear" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="2" Grid.Column="0" >
+                <Label Text="7" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="7" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="2" Grid.Column="1" >
+                <Label Text="8" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="8" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="2" Grid.Column="2" >
+                <Label Text="9" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="9" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="2" Grid.Column="3" >
+                <Label Text="/" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OperationCommand}" CommandParameter="{x:Static local:Operation.Divide}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="3" Grid.Column="0" >
+                <Label Text="4" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="4" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="3" Grid.Column="1" >
+                <Label Text="5" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="5" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="3" Grid.Column="2" >
+                <Label Text="6" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="6" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="3" Grid.Column="3" >
+                <Label Text="x" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OperationCommand}" CommandParameter="{x:Static local:Operation.Multiply}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="4" Grid.Column="0" >
+                <Label Text="1" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="1" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="4" Grid.Column="1" >
+                <Label Text="2" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="2" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="4" Grid.Column="2" >
+                <Label Text="3" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="3" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="4" Grid.Column="3" >
+                <Label Text="+" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OperationCommand}" CommandParameter="{x:Static local:Operation.Add}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="5" Grid.Column="0" >
+                <Label Text="0" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="0" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="5" Grid.Column="1" >
+                <Label Text="," />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCharCommand}" CommandParameter="," />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="5" Grid.Column="2" >
+                <Label Text="=" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OperationCommand}" CommandParameter="{x:Static local:Operation.Equal}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="5" Grid.Column="3" >
+                <Label Text="-" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OperationCommand}" CommandParameter="{x:Static local:Operation.Subtract}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

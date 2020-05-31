@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Name="HistoryPage"
-             x:Class="CalculatorMVVM.View.HistoryView">
+             x:Class="CalculatorMVVM.View.HistoryView"
+             Title="History">
     <ContentPage.Content>
         <CollectionView ItemsSource="{Binding Items}" >
             <CollectionView.ItemTemplate>
@@ -19,7 +20,7 @@
                                        CommandParameter="{Binding}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <Label Text="{Binding .}" Padding="20, 10, 10, 10" TextColor="Black" />
+                        <Label Text="{Binding .}" Padding="20, 10, 10, 10" Style="{StaticResource lblHistory}" />
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

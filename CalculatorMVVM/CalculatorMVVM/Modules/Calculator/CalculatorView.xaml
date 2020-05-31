@@ -13,14 +13,14 @@
                      Command="{Binding ShowHistoryCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <Grid ColumnSpacing="6" RowSpacing="6" Margin="5" >
+        <Grid ColumnSpacing="8" RowSpacing="8" Margin="5" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="200" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="85" />
-                <RowDefinition Height="85" />
-                <RowDefinition Height="85" />
-                <RowDefinition Height="85" />
+                <RowDefinition Height="160" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <StackLayout Grid.Row="0" Grid.ColumnSpan="4" >
-                <Editor Text="{Binding DisplayText, Mode=TwoWay}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                <Editor Text="{Binding DisplayText, Mode=TwoWay}" Style="{StaticResource editorCalculator}"/>
             </StackLayout>
             <Frame Grid.Row="1" Grid.ColumnSpan="4" >
                 <Label Text="Clear" />

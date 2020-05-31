@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CalculatorMVVM.Info;
 using CalculatorMVVM.Services;
 using CalculatorMVVM.View;
 using CalculatorMVVM.ViewModels;
@@ -11,13 +12,19 @@ using Xamarin.Forms.Markup;
 
 namespace CalculatorMVVM.Navigation
 {
+    public interface INavigationService
+    {
+        Task PushAsync<TViewModel>(object param = null) where TViewModel : BaseViewModel;
+        Task PopAsync();
+    }
     public class NavigationService : INavigationService
     {
         private Func<INavigation> _navigation;
         private IComponentContext _container;
         private readonly Dictionary<Type, Type> _pageMap = new Dictionary<Type, Type>
         {
-            {typeof(HistoryViewModel), typeof(HistoryView) }
+            {typeof(HistoryViewModel), typeof(HistoryView) },
+            {typeof(InfoViewModel), typeof(InfoView) }
         };
 
         public NavigationService(Func<INavigation> navigation, IComponentContext container)

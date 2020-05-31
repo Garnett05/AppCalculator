@@ -1,4 +1,6 @@
-﻿using CalculatorMVVM.Services;
+﻿using CalculatorMVVM.Info;
+using CalculatorMVVM.Navigation;
+using CalculatorMVVM.Services;
 using CalculatorMVVM.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -61,7 +63,7 @@ namespace CalculatorMVVM
         
         private async Task GoToHistory()
         {
-            await _navigation.PushAsync<HistoryViewModel>(_calculatorHistory);
+            await _navigation.PushAsync<InfoViewModel>(_calculatorHistory);
         }
         private void AddChar (string character)
         {

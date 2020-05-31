@@ -32,13 +32,23 @@ namespace CalculatorMVVM
         private CalculatorState _state;
         private Operation _currentOperation;
         private INavigationService _navigation;
+        private List<string> _calculatorHistory = new List<string>();
 
         public CalculatorViewModel(INavigationService navigation)
         {
             _state = CalculatorState.PopulatingFirstNumber;
             _currentOperation = Operation.None;
             _navigation = navigation;
+            SubscribeToMessage();
         }
+        private void SubscribeToMessage()
+        {
+            MessagingCenter.Subscribe<HistoryViewModel, List<string>>(this, "Items", (vm, list) => 
+            {
+                _calculatorHistory = list;
+            });
+        }
+
         public string DisplayText { 
             get { return _displayText; }
             set { _displayText = value;
@@ -51,7 +61,7 @@ namespace CalculatorMVVM
         
         private async Task GoToHistory()
         {
-            await _navigation.PushAsync<HistoryViewModel>();
+            await _navigation.PushAsync<HistoryViewModel>(_calculatorHistory);
         }
         private void AddChar (string character)
         {
@@ -120,10 +130,32 @@ namespace CalculatorMVVM
                     break;
             }
             DisplayText = result.ToString();
+            _calculatorHistory.Add($"{_firstNumber} {GetOperationString()} {_secondNumber} = {result}");
             _currentOperation = Operation.None;
             _state = CalculatorState.PopulatingFirstNumber;
             _firstNumber = string.Empty;
             _secondNumber = string.Empty;
+        }
+
+        private object GetOperationString()
+        {
+            string a = string.Empty;
+            switch (_currentOperation)
+            {
+                case Operation.Add:
+                    a = "+";
+                    break;
+                case Operation.Subtract:
+                    a = "-";
+                    break;
+                case Operation.Multiply:
+                    a = "*";
+                    break;
+                case Operation.Divide:
+                    a = "/";
+                    break;
+            }
+            return a;
         }
     }
 }

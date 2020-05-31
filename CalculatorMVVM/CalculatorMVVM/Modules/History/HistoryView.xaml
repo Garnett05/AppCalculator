@@ -25,7 +25,7 @@
             </CollectionView.ItemTemplate>
             <CollectionView.EmptyView>
                 <StackLayout HorizontalOptions="Center">
-                    <Image Source="https://www.agenciamestre.com/wp-content/uploads/2009/05/erro-404-1280x720.jpg"
+                    <Image Source="error404.jpg"
                            WidthRequest="200"
                            HeightRequest="200"/>
                     <Label HorizontalTextAlignment="Center"
